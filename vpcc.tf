@@ -52,3 +52,24 @@ resource "aws_internet_gateway" "vpcc_internet_gateway" {
     Projeto = var.resource_tags["Projeto"]
   }
 }
+
+# Route Table
+resource "aws_route_table" "vpcc_rtb" {
+  vpc_id = aws_vpc.vpc_c.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.vpcc_internet_gateway.id
+  }
+
+  tags = {
+    Name    = var.vpcc_names["rtb"]
+    Materia = var.resource_tags["Materia"]
+    Projeto = var.resource_tags["Projeto"]
+  }
+}
+
+resource "aws_main_route_table_association" "vpcc_rtb_association" {
+  vpc_id         = aws_vpc.vpc_c.id
+  route_table_id = aws_route_table.vpcc_rtb.id
+}

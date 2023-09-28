@@ -13,7 +13,7 @@ resource "aws_vpc" "vpc_b" {
 }
 
 output "out_vpc_b_id" {
-  value = aws_vpc.vpc_b
+  value = aws_vpc.vpc_b.id
 }
 
 # Subnet A
@@ -51,4 +51,25 @@ resource "aws_internet_gateway" "vpcb_internet_gateway" {
     Materia = var.resource_tags["Materia"]
     Projeto = var.resource_tags["Projeto"]
   }
+}
+
+# Route Table
+resource "aws_route_table" "vpcb_rtb" {
+  vpc_id = aws_vpc.vpc_b.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.vpcb_internet_gateway.id
+  }
+
+  tags = {
+    Name    = var.vpcb_names["rtb"]
+    Materia = var.resource_tags["Materia"]
+    Projeto = var.resource_tags["Projeto"]
+  }
+}
+
+resource "aws_main_route_table_association" "vpcb_rtb_association" {
+  vpc_id         = aws_vpc.vpc_b.id
+  route_table_id = aws_route_table.vpcb_rtb.id
 }

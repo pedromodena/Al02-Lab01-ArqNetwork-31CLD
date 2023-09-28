@@ -15,6 +15,7 @@ variable "vpca_names" {
     "subneta"  = "VPC-A-AZ1"
     "subnetb"  = "VPC-A-AZ2"
     "igw"      = "VPC-A-IGW"
+    "rtb"      = "VPC-A-RTB"
   }
 }
 
@@ -25,16 +26,18 @@ variable "vpcb_names" {
     "subneta"  = "VPC-B-AZ1"
     "subnetb"  = "VPC-B-AZ2"
     "igw"      = "VPC-B-IGW"
+    "rtb"      = "VPC-B-RTB"
   }
 }
 
 variable "vpcc_names" {
   type = map(string)
   default = {
-    "vpc_name" = "VPC-C",
-    "subneta"  = "VPC-C-AZ1",
+    "vpc_name" = "VPC-C"
+    "subneta"  = "VPC-C-AZ1"
     "subnetb"  = "VPC-C-AZ2"
     "igw"      = "VPC-C-IGW"
+    "rtb"      = "VPC-C-RTB"
   }
 }
 
