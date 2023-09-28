@@ -8,5 +8,5 @@ Gateway de Internet para estabelecer conectividade externa às instâncias EC2 e
 ## Arquitetura da solução
 
 <p align="center">
-<img src="./arquitetura-solucao-aula02-lab01.drawio.png" width="800px" height="auto">
+<img src="./arquitetura-solucao-aula02-lab01.png" width="800px" height="auto">
 </p>
