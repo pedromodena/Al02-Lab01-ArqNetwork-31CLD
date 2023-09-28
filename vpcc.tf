@@ -6,8 +6,8 @@ resource "aws_vpc" "vpc_c" {
   cidr_block = "10.2.0.0/16"
 
   tags = {
-    Name    = var.vpcc_names["vpc_name"],
-    Materia = var.resource_tags["Materia"],
+    Name    = var.vpcc_names["vpc_name"]
+    Materia = var.resource_tags["Materia"]
     Projeto = var.resource_tags["Projeto"]
   }
 }
@@ -23,8 +23,8 @@ resource "aws_subnet" "vpcc_subneta" {
   availability_zone = "us-east-1a"
 
   tags = {
-    Name    = var.vpcc_names["subneta"],
-    Materia = var.resource_tags["Materia"],
+    Name    = var.vpcc_names["subneta"]
+    Materia = var.resource_tags["Materia"]
     Projeto = var.resource_tags["Projeto"]
   }
 }
@@ -36,8 +36,19 @@ resource "aws_subnet" "vpcc_subnetb" {
   availability_zone = "us-east-1b"
 
   tags = {
-    Name    = var.vpcc_names["subnetb"],
-    Materia = var.resource_tags["Materia"],
+    Name    = var.vpcc_names["subnetb"]
+    Materia = var.resource_tags["Materia"]
+    Projeto = var.resource_tags["Projeto"]
+  }
+}
+
+# Internet Gateway
+resource "aws_internet_gateway" "vpcc_internet_gateway" {
+  vpc_id = aws_vpc.vpc_c.id
+
+  tags = {
+    Name    = var.vpcc_names["igw"]
+    Materia = var.resource_tags["Materia"]
     Projeto = var.resource_tags["Projeto"]
   }
 }

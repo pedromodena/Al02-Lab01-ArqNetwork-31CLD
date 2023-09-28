@@ -3,7 +3,7 @@ variable "resource_tags" {
   description = "Tags"
   type        = map(string)
   default = {
-    "Materia" = "Arquitetura Network",
+    "Materia" = "Arquitetura Network"
     "Projeto" = "AULA02-LAB01-MULTI-VPC"
   }
 }
@@ -11,18 +11,20 @@ variable "resource_tags" {
 variable "vpca_names" {
   type = map(string)
   default = {
-    "vpc_name" = "VPC-A",
+    "vpc_name" = "VPC-A"
     "subneta"  = "VPC-A-AZ1"
     "subnetb"  = "VPC-A-AZ2"
+    "igw"      = "VPC-A-IGW"
   }
 }
 
 variable "vpcb_names" {
   type = map(string)
   default = {
-    "vpc_name" = "VPC-B",
+    "vpc_name" = "VPC-B"
     "subneta"  = "VPC-B-AZ1"
     "subnetb"  = "VPC-B-AZ2"
+    "igw"      = "VPC-B-IGW"
   }
 }
 
@@ -30,8 +32,9 @@ variable "vpcc_names" {
   type = map(string)
   default = {
     "vpc_name" = "VPC-C",
-    "subneta"  = "VPC-C-AZ1"
+    "subneta"  = "VPC-C-AZ1",
     "subnetb"  = "VPC-C-AZ2"
+    "igw"      = "VPC-C-IGW"
   }
 }
 
