@@ -47,7 +47,8 @@ variable "amazon_linux_2023_x64_ami" {
   default     = "ami-03a6eaae9938c858c"
 }
 
-variable "ec2_name" {
-  type    = string
-  default = "srv-arqnet-lab01"
+variable "iam_instance_profile" {
+  description = "IAM Instance Profile for Session Manager"
+  type        = string
+  default     = "AmazonSSMRoleForInstancesQuickSetup"
 }
