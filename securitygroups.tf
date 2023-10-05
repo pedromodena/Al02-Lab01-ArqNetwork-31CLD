@@ -3,10 +3,17 @@ resource "aws_security_group" "srv_vpca_sg" {
   vpc_id = aws_vpc.vpc_a.id
 
   # Ingress rule 1 (SSH 22)
+  # ingress {
+  #   from_port   = 22
+  #   to_port     = 22
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
+
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -32,10 +39,17 @@ resource "aws_security_group" "srv_vpcb_sg" {
   vpc_id = aws_vpc.vpc_b.id
 
   # Ingress rule 1 (SSH 22)
+  # ingress {
+  #   from_port   = 22
+  #   to_port     = 22
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
+
   ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
